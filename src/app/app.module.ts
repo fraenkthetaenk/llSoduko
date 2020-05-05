@@ -27,6 +27,7 @@ export class AppModule {
       },
       removeOnSpill:true,
       accepts: function (el, target) {
+        console.log(target.id)
         return target !== document.getElementById("tile-grid")
       }
       // drop:
