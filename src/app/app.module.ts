@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DragulaModule } from 'ng2-dragula';
+import { DragulaService } from 'ng2-dragula';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,28 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DragulaModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor (private dragularService: DragulaService)
+  {
+    dragularService.createGroup("Tiles", {
+      copy: function (el, source) {
+        return source.id === "tile-grid";
+      },
+      removeOnSpill:true,
+      accepts: function (el, target) {
+        return target !== document.getElementById("tile-grid")
+      }
+      // drop:
+    }
+    )
+  }
+
+}
+
+
