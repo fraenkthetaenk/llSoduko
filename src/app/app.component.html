@@ -45,6 +45,42 @@
     .br {
         border-right: 5px solid blue
     }
+    
+    [square="1"] {
+        background-color: blue;
+    }
+    
+    [square="2"] {
+        background-color: red;
+    }
+    
+    [square="3"] {
+        background-color: yellow;
+    }
+    
+    [square="4"] {
+        background-color: green;
+    }
+    
+    [square="5"] {
+        background-color: grey;
+    }
+    
+    [square="6"] {
+        background-color: purple;
+    }
+    
+    [square="7"] {
+        background-color: brown;
+    }
+    
+    [square="8"] {
+        background-color: aqua;
+    }
+    
+    [square="9"] {
+        background-color: darkorange;
+    }
 </style>
 
 <div class="tile-grid" id="tile-grid" dragula="Tiles">
@@ -62,7 +98,7 @@
 <div class="parent" id="soduko-grid" style="padding-top: 20px;">
     <ng-template ngFor let-item [ngForOf]="range" let-j="index">
         <ng-template ngFor let-item [ngForOf]="range" let-i="index">
-            <div class="item" [ngClass]="{'bu':(j==2 || j==5),'br':(i==2 || i==5)}" [dragula]="allTile.indexOf((''+(j+1)+(i+1)))>=0 ? undefined:'Tiles'">
+            <div class="item" [ngClass]="{'bu':(j==2 || j==5),'br':(i==2 || i==5)}" [dragula]="allTile.indexOf((''+(j+1)+(i+1)))>=0 ? undefined:'Tiles'" [attr.row]="j+1" [attr.column]="i+1" [attr.square]="Math.floor((i)/3)+Math.floor((j)/3)*3+1">
                 <ng-template [ngIf]="tile1.indexOf((''+(j+1)+(i+1)))>=0">
                     <div class="basic-tile"> <img src="assets/aquars/chika.png"></div>
                 </ng-template>
