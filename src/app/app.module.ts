@@ -19,22 +19,7 @@ import { DragulaService } from 'ng2-dragula';
   bootstrap: [AppComponent]
 })
 export class AppModule { 
-  constructor (private dragularService: DragulaService)
-  {
-    dragularService.createGroup("Tiles", {
-      copy: function (el, source) {
-        return source.id === "tile-grid";
-      },
-      removeOnSpill:true,
-      accepts: function (el, target) {
-        console.log(target.id)
-        return target !== document.getElementById("tile-grid")
-      }
-      // drop:
-    }
-    )
-  }
-
+ 
 }
 
 

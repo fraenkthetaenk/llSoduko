@@ -46,6 +46,59 @@
         border-right: 5px solid blue
     }
     
+    [type="1"] {
+        background-image: url("assets/aquars/chika.png");
+        background-size: 75px;
+    }
+    
+    [type="2"] {
+        background-image: url("assets/aquars/dia.png");
+        background-size: 75px;
+    }
+    
+    [type="3"] {
+        background-image: url("assets/aquars/hanamaru.png");
+        background-size: 75px;
+    }
+    
+    [type="4"] {
+        background-image: url("assets/aquars/kanan.png");
+        background-size: 75px;
+    }
+    
+    [type="5"] {
+        background-image: url("assets/aquars/mari.png");
+        background-size: 75px;
+    }
+    
+    [type="6"] {
+        background-image: url("assets/aquars/riko.png");
+        background-size: 75px;
+    }
+    
+    [type="7"] {
+        background-image: url("assets/aquars/ruby.png");
+        background-size: 75px;
+    }
+    
+    [type="8"] {
+        background-image: url("assets/aquars/yoshiko.png");
+        background-size: 75px;
+    }
+    
+    [type="9"] {
+        background-image: url("assets/aquars/you.png");
+        background-size: 75px;
+    }
+    
+    .done {
+        filter: grayscale(1);
+    }
+    
+    .active {
+        background: yellow;
+    }
+    /*     
     [square="1"] {
         background-color: blue;
     }
@@ -80,51 +133,53 @@
     
     [square="9"] {
         background-color: darkorange;
-    }
+    } */
 </style>
 
 <div class="tile-grid" id="tile-grid" dragula="Tiles">
-    <div class="basic-tile"> <img src="assets/aquars/chika.png"></div>
-    <div class="basic-tile"> <img src="assets/aquars/dia.png"></div>
-    <div class="basic-tile"> <img src="assets/aquars/hanamaru.png"></div>
-    <div class="basic-tile"> <img src="assets/aquars/kanan.png"></div>
-    <div class="basic-tile"> <img src="assets/aquars/mari.png"></div>
-    <div class="basic-tile"> <img src="assets/aquars/riko.png"></div>
-    <div class="basic-tile"> <img src="assets/aquars/ruby.png"></div>
-    <div class="basic-tile"> <img src="assets/aquars/yoshiko.png"></div>
-    <div class="basic-tile"> <img src="assets/aquars/you.png"></div>
+    <div type="1" class="basic-tile type1 wallet"></div>
+    <div type="2" class="basic-tile type2 wallet"></div>
+    <div type="3" class="basic-tile type3 wallet"></div>
+    <div type="4" class="basic-tile type4 wallet"></div>
+    <div type="5" class="basic-tile type5 wallet"></div>
+    <div type="6" class="basic-tile type6 wallet"></div>
+    <div type="7" class="basic-tile type7 wallet"></div>
+    <div type="8" class="basic-tile type8 wallet"></div>
+    <div type="9" class="basic-tile type9 wallet"></div>
 </div>
-
+<!-- [attr.row]="j+1" 
+[attr.column]="i+1" 
+[attr.square]="Math.floor((i)/3)+Math.floor((j)/3)*3+1" -->
 <div class="parent" id="soduko-grid" style="padding-top: 20px;">
     <ng-template ngFor let-item [ngForOf]="range" let-j="index">
         <ng-template ngFor let-item [ngForOf]="range" let-i="index">
-            <div class="item" [ngClass]="{'bu':(j==2 || j==5),'br':(i==2 || i==5)}" [dragula]="allTile.indexOf((''+(j+1)+(i+1)))>=0 ? undefined:'Tiles'" [attr.row]="j+1" [attr.column]="i+1" [attr.square]="Math.floor((i)/3)+Math.floor((j)/3)*3+1">
+            <div class="item" (click)="clickTile($event)" [ngClass]="{'bu':(j==2 || j==5),'br':(i==2 || i==5)}" [dragula]="allTile.indexOf((''+(j+1)+(i+1)))>=0 ? undefined:'Tiles'" [attr.row]="j+1" [attr.column]="i+1" [attr.square]="Math.floor((i)/3)+Math.floor((j)/3)*3+1">
                 <ng-template [ngIf]="tile1.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/chika.png"></div>
+                    <div type="1" class="basic-tile"></div>
                 </ng-template>
                 <ng-template [ngIf]="tile2.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/dia.png"></div>
+                    <div type="2" class="basic-tile"></div>
                 </ng-template>
                 <ng-template [ngIf]="tile3.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/hanamaru.png"></div>
+                    <div type="3" class="basic-tile"></div>
                 </ng-template>
                 <ng-template [ngIf]="tile4.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/kanan.png"></div>
+                    <div type="4" class="basic-tile"></div>
                 </ng-template>
                 <ng-template [ngIf]="tile5.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/mari.png"></div>
+                    <div type="5" class="basic-tile"></div>
                 </ng-template>
                 <ng-template [ngIf]="tile6.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/riko.png"></div>
+                    <div type="6" class="basic-tile"></div>
                 </ng-template>
                 <ng-template [ngIf]="tile7.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/ruby.png"></div>
+                    <div type="7" class="basic-tile"></div>
                 </ng-template>
                 <ng-template [ngIf]="tile8.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/yoshiko.png"></div>
+                    <div type="8" class="basic-tile"></div>
                 </ng-template>
                 <ng-template [ngIf]="tile9.indexOf((''+(j+1)+(i+1)))>=0">
-                    <div class="basic-tile"> <img src="assets/aquars/you.png"></div>
+                    <div type="9" class="basic-tile"></div>
                 </ng-template>
             </div>
         </ng-template>
