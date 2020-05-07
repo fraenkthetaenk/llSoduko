@@ -4,8 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { DragulaModule } from 'ng2-dragula';
 import { DragulaService } from 'ng2-dragula';
-import { kStringMaxLength } from 'buffer';
-import { ConsoleReporter } from 'jasmine';
+
 
 @Component({
   selector: 'app-root',
@@ -70,17 +69,17 @@ export class AppComponent implements AfterViewInit{
     )
     this.subs.add(dragularService.drop("Tiles")
       .subscribe(({ name, el, target, source, sibling }) => {
-        let elType = parseInt(el.attributes.type.value)
-        let tRow =target.attributes.row.value
-        let tCol=target.attributes.column.value
-        let tSqr=target.attributes.square.value
+        let elType = parseInt(el.getAttribute("type"))
+        let tRow =target.getAttribute("row")
+        let tCol=target.getAttribute("column")
+        let tSqr=target.getAttribute("square")
         if (el.classList.value.includes("wallet"))
         {
           el.classList.remove("wallet")
         }else{
-          let sRow =source.attributes.row.value
-          let sCol=source.attributes.column.value
-          let sSqr=source.attributes.square.value
+          let sRow =source.getAttribute("row")
+          let sCol=source.getAttribute("column")
+          let sSqr=source.getAttribute("square")
           this.rows[sRow].splice(this.rows[sRow].indexOf(elType),1)
           this.columns[sCol].splice(this.columns[sCol].indexOf(elType),1)
           this.squares[sSqr].splice(this.squares[sSqr].indexOf(elType),1)
@@ -101,10 +100,10 @@ export class AppComponent implements AfterViewInit{
     );
     this.subs.add(dragularService.remove("Tiles").subscribe(({el, container, source})=>{
 
-      let elType = parseInt(el.attributes.type.value)
-      let sRow =source.attributes.row.value
-      let sCol=source.attributes.column.value
-      let sSqr=source.attributes.square.value
+      let elType = parseInt(el.getAttribute("type"))
+      let sRow =source.getAttribute("row")
+      let sCol=source.getAttribute("column")
+      let sSqr=source.getAttribute("square")
       this.rows[sRow].splice(this.rows[sRow].indexOf(elType),1)
       this.columns[sCol].splice(this.columns[sCol].indexOf(elType),1)
       this.squares[sSqr].splice(this.squares[sSqr].indexOf(elType),1)
