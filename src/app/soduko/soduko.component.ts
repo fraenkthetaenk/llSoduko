@@ -32,6 +32,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
   subs = new Subscription();
 
   loadGame(){
+    this.showHints =false;
     this._elementRef.nativeElement.querySelectorAll(".basic-tile.wallet").forEach(element=>{
       element.classList = "basic-tile wallet"
     })
@@ -157,6 +158,8 @@ export class SodukoComponent implements OnInit,AfterViewInit {
     this._elementRef.nativeElement.querySelectorAll(".active").forEach(element => {
       element.classList.remove("active");      
     });
+    this.classLastAdded = this.baseSoduko[this.selectedGroup]["characters"][this.currentlyMarked]["name"]
+    if(this.showHints){
     this._elementRef.nativeElement.querySelector('[type="'+type+'"].wallet').classList.add("active")
     this._elementRef.nativeElement.querySelectorAll('[type="'+type+'"]:not(.wallet)').forEach(e=>{
       this._elementRef.nativeElement.querySelectorAll('[row="'+e.parentElement.attributes.row.value+'"]').forEach(element => {
@@ -170,11 +173,12 @@ export class SodukoComponent implements OnInit,AfterViewInit {
       });
      
     })
-    this.classLastAdded = this.baseSoduko[this.selectedGroup]["characters"][this.currentlyMarked]["name"]
+   
     console.log(this.classLastAdded)
     this._elementRef.nativeElement.querySelectorAll(".item:not(.active):empty").forEach(element => {
       element.classList.add(this.classLastAdded )
     });
+  }
     
   }
   
@@ -198,6 +202,18 @@ export class SodukoComponent implements OnInit,AfterViewInit {
     if(baseElement.classList.contains("basic-tile")){
       this.markTiles(baseElement.attributes.type.value)
     }
+    else{
+      
+    }
+    // else{
+    //   this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]').forEach(element => {
+    //     element.classList.add("active")  
+    //   });
+      
+    //   this._elementRef.nativeElement.querySelectorAll('[column="'+baseElement.attributes.column.value+'"]').forEach(element => {
+    //     element.classList.add("active")  
+    //   });
+    // }
   }
   else{
     if(this.classLastAdded.length >0){
@@ -209,15 +225,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
         element.classList.remove("active");      
       });
   }
-    // else{
-    //   this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]').forEach(element => {
-    //     element.classList.add("active")  
-    //   });
-      
-    //   this._elementRef.nativeElement.querySelectorAll('[column="'+baseElement.attributes.column.value+'"]').forEach(element => {
-    //     element.classList.add("active")  
-    //   });
-    // }
+
   }
 
   ngOnDestroy() {
