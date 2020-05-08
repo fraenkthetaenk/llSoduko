@@ -77,7 +77,7 @@
 
         }
     },
-    "aquars": {
+    "aqours": {
         "characters": {
             "1": { "color": "#F0A20B", "name": "Chika", "image": "/assets/aquars/chika.png" },
             "2": { "color": "#E9A9E8", "name": "Riko", "image": "/assets/aquars/riko.png" },
