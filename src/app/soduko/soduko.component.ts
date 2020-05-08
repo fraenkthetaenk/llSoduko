@@ -203,7 +203,23 @@ export class SodukoComponent implements OnInit,AfterViewInit {
       this.markTiles(baseElement.attributes.type.value)
     }
     else{
-      
+      this._elementRef.nativeElement.querySelectorAll('.wallet').forEach(element=>{element.classList.remove("active")});
+      let all = []
+      this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]>.basic-tile').forEach(element => {
+        all.push(parseInt(element.attributes.type.value.toString()))
+      });
+      this._elementRef.nativeElement.querySelectorAll('[column="'+baseElement.attributes.column.value+'"]>.basic-tile').forEach(element => {
+        all.push(parseInt(element.attributes.type.value.toString()))
+      });
+      this._elementRef.nativeElement.querySelectorAll('[square="'+baseElement.attributes.square.value+'"]>.basic-tile').forEach(element => {
+        if(all.indexOf(parseInt(element.attributes.type.value.toString()))==-1){
+          all.push(parseInt(element.attributes.type.value.toString()))
+        }
+      });
+      all = ([ ... new Set(all)])
+      all.forEach(element => {
+        this._elementRef.nativeElement.querySelector('[type="'+element.toString()+'"].wallet').classList.add("active")
+      })
     }
     // else{
     //   this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]').forEach(element => {
