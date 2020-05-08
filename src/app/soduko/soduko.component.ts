@@ -11,6 +11,7 @@ import { element } from 'protractor';
 })
 export class SodukoComponent implements OnInit,AfterViewInit {
 
+  selCOlor ="red"
   private baseSoduko = baseSodukos["default"];
   Math= Math;
   title = 'picSoduko';
@@ -18,6 +19,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
   columns={1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[]};
   squares={1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[]};
   currentlyMarked = 0;
+  classLastAdded="";
  
   range =[1,2,3,4,5,6,7,8,9];
   groups2 = ["adasdas","asasdasddsaas"]
@@ -146,8 +148,13 @@ export class SodukoComponent implements OnInit,AfterViewInit {
   }
   markTiles(type){
     this.currentlyMarked = type;
+    if(this.classLastAdded.length >0){
+    this._elementRef.nativeElement.querySelectorAll(("."+this.classLastAdded)).forEach(element => {
+      element.classList.remove(this.classLastAdded);
+    });
+  }
     this._elementRef.nativeElement.querySelectorAll(".active").forEach(element => {
-      element.classList.remove("active")
+      element.classList.remove("active");      
     });
     this._elementRef.nativeElement.querySelector('[type="'+type+'"].wallet').classList.add("active")
     this._elementRef.nativeElement.querySelectorAll('[type="'+type+'"]:not(.wallet)').forEach(e=>{
@@ -162,6 +169,12 @@ export class SodukoComponent implements OnInit,AfterViewInit {
       });
      
     })
+    this.classLastAdded = this.baseSoduko[this.selectedGroup]["characters"][this.currentlyMarked]["name"]
+    console.log(this.classLastAdded)
+    this._elementRef.nativeElement.querySelectorAll(".item:not(.active):empty").forEach(element => {
+      element.classList.add(this.classLastAdded )
+    });
+    
   }
   
   clickHeaderTile(el){
@@ -173,15 +186,15 @@ export class SodukoComponent implements OnInit,AfterViewInit {
     if(baseElement.classList.contains("basic-tile")){
       this.markTiles(baseElement.attributes.type.value)
     }
-    else{
-      this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]').forEach(element => {
-        element.classList.add("active")  
-      });
+    // else{
+    //   this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]').forEach(element => {
+    //     element.classList.add("active")  
+    //   });
       
-      this._elementRef.nativeElement.querySelectorAll('[column="'+baseElement.attributes.column.value+'"]').forEach(element => {
-        element.classList.add("active")  
-      });
-    }
+    //   this._elementRef.nativeElement.querySelectorAll('[column="'+baseElement.attributes.column.value+'"]').forEach(element => {
+    //     element.classList.add("active")  
+    //   });
+    // }
   }
 
   ngOnDestroy() {

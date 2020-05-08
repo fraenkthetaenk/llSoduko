@@ -49,6 +49,7 @@ img {
     filter: grayscale(1);
 }
 
-.item:not(.active):empty {
+
+/* .item:not(.active):empty {
     background-color: aqua;
-}
+} */
