@@ -54,6 +54,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
       this.columns[i]=[]
       this.squares[i]=[]
     }
+    this._elementRef.nativeElement.querySelectorAll('.wallet').forEach(element=>{element.classList.remove("done")})
     for(let i =1; i<=9;i++){
       if(this.countType(i)==9){
         this._elementRef.nativeElement.querySelector('[type="'+i+'"].wallet').classList.add("done")
@@ -68,7 +69,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
       });
     }
     if(this.currentlyMarked>0){
-    this.markTiles(this.currentlyMarked)
+      this.markTiles(this.currentlyMarked)
     }
   }
 
@@ -203,7 +204,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
       this.markTiles(baseElement.attributes.type.value)
     }
     else{
-      this._elementRef.nativeElement.querySelectorAll('.wallet').forEach(element=>{element.classList.remove("active")});
+      this._elementRef.nativeElement.querySelectorAll('.wallet').forEach(element=>{element.classList.add("active")});
       let all = []
       this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]>.basic-tile').forEach(element => {
         all.push(parseInt(element.attributes.type.value.toString()))
@@ -218,7 +219,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
       });
       all = ([ ... new Set(all)])
       all.forEach(element => {
-        this._elementRef.nativeElement.querySelector('[type="'+element.toString()+'"].wallet').classList.add("active")
+        this._elementRef.nativeElement.querySelector('[type="'+element.toString()+'"].wallet').classList.remove("active")
       })
     }
     // else{
