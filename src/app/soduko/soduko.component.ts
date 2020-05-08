@@ -20,6 +20,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
   squares={1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[]};
   currentlyMarked = 0;
   classLastAdded="";
+  showHints= false;
  
   range =[1,2,3,4,5,6,7,8,9];
   groups2 = ["adasdas","asasdasddsaas"]
@@ -178,14 +179,36 @@ export class SodukoComponent implements OnInit,AfterViewInit {
   }
   
   clickHeaderTile(el){
+    if(this.showHints){
     this.markTiles(el.target.getAttribute("type"))   
+    }else{
+      if(this.classLastAdded.length >0){
+        this._elementRef.nativeElement.querySelectorAll(("."+this.classLastAdded)).forEach(element => {
+          element.classList.remove(this.classLastAdded);
+        });
+      }
+        this._elementRef.nativeElement.querySelectorAll(".active").forEach(element => {
+          element.classList.remove("active");      
+        });
+    }
   }
   clickTile(el){
-
+    if(this.showHints){
     let baseElement = el.target;
     if(baseElement.classList.contains("basic-tile")){
       this.markTiles(baseElement.attributes.type.value)
     }
+  }
+  else{
+    if(this.classLastAdded.length >0){
+      this._elementRef.nativeElement.querySelectorAll(("."+this.classLastAdded)).forEach(element => {
+        element.classList.remove(this.classLastAdded);
+      });
+    }
+      this._elementRef.nativeElement.querySelectorAll(".active").forEach(element => {
+        element.classList.remove("active");      
+      });
+  }
     // else{
     //   this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]').forEach(element => {
     //     element.classList.add("active")  

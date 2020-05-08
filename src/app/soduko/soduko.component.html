@@ -13,6 +13,9 @@
 </select>
 
 <button (click)="loadGame()">Load</button>
+<div>
+    Show Hints:<input type="checkbox" [(ngModel)]="showHints">
+</div>
 
 <div class="tile-grid" id="tile-grid" dragula="Tiles">
     <ng-template ngFor let-item [ngForOf]="range" let-i="index">
