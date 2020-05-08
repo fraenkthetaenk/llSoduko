@@ -17,6 +17,7 @@ export class AppComponent implements AfterViewInit{
   rows={1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[]};
   columns={1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[]};
   squares={1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[]};
+  currentlyMarked = 0;
  
   range =[1,2,3,4,5,6,7,8,9];
   tile1 = ["21","38","76"];//chika
@@ -60,6 +61,9 @@ export class AppComponent implements AfterViewInit{
           this.squares[element.parentElement.attributes.square.value].push(i);
         }
       });
+    }
+    if(this.currentlyMarked>0){
+    this.markTiles(this.currentlyMarked)
     }
   }
 
@@ -125,9 +129,11 @@ export class AppComponent implements AfterViewInit{
 
   }
   markTiles(type){
+    this.currentlyMarked = type;
     this._elementRef.nativeElement.querySelectorAll(".active").forEach(element => {
       element.classList.remove("active")
     });
+    this._elementRef.nativeElement.querySelector('[type="'+type+'"].wallet').classList.add("active")
     this._elementRef.nativeElement.querySelectorAll('[type="'+type+'"]:not(.wallet)').forEach(e=>{
       this._elementRef.nativeElement.querySelectorAll('[row="'+e.parentElement.attributes.row.value+'"]').forEach(element => {
         element.classList.add("active")
