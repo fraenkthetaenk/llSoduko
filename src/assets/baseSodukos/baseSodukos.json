@@ -1,0 +1,117 @@
+{
+
+    "nijigasaki": {
+        "characters": {
+            "1": { "color": "#EE879D", "name": "Ayumu", "image": "/assets/niji/ayumu.png" },
+            "2": { "color": "#FFE41C", "name": "Kasumi", "image": "/assets/niji/kasumi.png" },
+            "3": { "color": "#73C9F3", "name": "Shizuku", "image": "/assets/niji/shizuku.png" },
+            "4": { "color": "#565EA9", "name": "Karin", "image": "/assets/niji/karin.png" },
+            "5": { "color": "#F18F3D", "name": "Ai", "image": "/assets/niji/ai.png" },
+            "6": { "color": "#B44E8F", "name": "Kanata", "image": "/assets/niji/kanata.png" },
+            "7": { "color": "#E94C53", "name": "Setsuna", "image": "/assets/niji/setsuna.png" },
+            "8": { "color": "#8EC225", "name": "Emma", "image": "/assets/niji/emma.png" },
+            "9": { "color": "#9AA3AA", "name": "Rina", "image": "/assets/niji/rina.png" }
+        },
+        "sodukos": {
+            "1": {
+                "Ayumu": ["36", "41", "98"],
+                "Kasumi": ["16", "21", "37", "48"],
+                "Shizuku": ["12", "57", "65", "74", "89"],
+                "Karin": ["28", "49", "61", "73"],
+                "Ai": ["33", "82"],
+                "Kanata": ["24"],
+                "Setsuna": ["94"],
+                "Emma": ["45", "62", "77", "86"],
+                "Rina": ["53", "69", "85", "97"]
+            },
+            "2": {
+                "Ayumu": ["39", "85", "97"],
+                "Kasumi": ["13"],
+                "Shizuku": ["21", "72", "84"],
+                "Karin": ["19", "26", "77"],
+                "Ai": ["27", "46", "59", "92"],
+                "Kanata": ["45", "78"],
+                "Setsuna": ["14", "33", "58"],
+                "Emma": ["52"],
+                "Rina": ["53", "65", "91"]
+            }
+
+        }
+    },
+
+    "muse": {
+        "characters": {
+            "1": { "color": "#E2732D", "name": "Honoka", "image": "/assets/muse/honoka.png" },
+            "2": { "color": "#8C9395", "name": "Kotori", "image": "/assets/muse/kotori.png" },
+            "3": { "color": "#1660A5", "name": "Umi", "image": "/assets/muse/umi.png" },
+            "4": { "color": "#54AB48", "name": "Hanayo", "image": "/assets/muse/hanayo.png" },
+            "5": { "color": "#F1C51F", "name": "Rin", "image": "/assets/muse/rin.png" },
+            "6": { "color": "#CC3554", "name": "Maki", "image": "/assets/muse/maki.png" },
+            "7": { "color": "#D54E8D", "name": "Nico", "image": "/assets/muse/nico.png" },
+            "8": { "color": "#36B3DD", "name": "Eli", "image": "/assets/muse/eli.png" },
+            "9": { "color": "#744791", "name": "Nozomi", "image": "/assets/muse/nozomi.png" }
+        },
+        "sodukos": {
+            "1": {
+                "Honoka": ["32", "46", "87"],
+                "Kotori": ["67", "84", "93"],
+                "Umi": ["12", "35", "49", "73"],
+                "Hanayo": ["29", "61", "78"],
+                "Rin": ["15", "58", "64", "96"],
+                "Maki": ["76", "91"],
+                "Nico": ["26", "38", "44"],
+                "Eli": ["17", "21", "53", "69", "98"],
+                "Nozomi": ["41", "55", "82"]
+            },
+            "2": {
+                "Honoka": ["11", "55", "77"],
+                "Kotori": ["13", "24", "58", "86", "92"],
+                "Umi": ["29", "44", "61"],
+                "Hanayo": ["49", "64"],
+                "Rin": ["33", "72", "97"],
+                "Maki": ["16", "69"],
+                "Nico": ["18", "22", "75"],
+                "Eli": ["38", "66", "81"],
+                "Nozomi": ["27"]
+            }
+
+        }
+    },
+    "aquars": {
+        "characters": {
+            "1": { "color": "#F0A20B", "name": "Chika", "image": "/assets/aquars/chika.png" },
+            "2": { "color": "#E9A9E8", "name": "Riko", "image": "/assets/aquars/riko.png" },
+            "3": { "color": "#13E8AE", "name": "Kanan", "image": "/assets/aquars/kanan.png" },
+            "4": { "color": "#F23B4C", "name": "Dia", "image": "/assets/aquars/dia.png" },
+            "5": { "color": "#49B9F9", "name": "You", "image": "/assets/aquars/you.png" },
+            "6": { "color": "#898989", "name": "Yoshiko", "image": "/assets/aquars/yoshiko.png" },
+            "7": { "color": "#E6D617", "name": "Hanamaru", "image": "/assets/aquars/hanamaru.png" },
+            "8": { "color": "#AE58EB", "name": "Mari", "image": "/assets/aquars/mari.png" },
+            "9": { "color": "#FB75E4", "name": "Ruby", "image": "/assets/aquars/ruby.png" }
+        },
+        "sodukos": {
+            "1": {
+                "Chika": ["21", "38", "76"],
+                "Riko": ["24", "96"],
+                "Kanan": ["15", "56", "67", "73"],
+                "Dia": ["29", "58", "85", "91"],
+                "You": ["18", "33", "51"],
+                "Yoshiko": ["13", "27", "42", "65", "94"],
+                "Hanamaru": ["44"],
+                "Mari": ["47", "53", "79", "82"],
+                "Ruby": ["62", "71", "99"]
+            },
+            "2": {
+                "Chika": ["23", "47", "84"],
+                "Riko": ["97"],
+                "Kanan": ["34"],
+                "Dia": ["13", "26", "68", "92"],
+                "You": ["21", "42", "55", "89"],
+                "Yoshiko": ["15", "76"],
+                "Hanamaru": ["36", "49", "61"],
+                "Mari": ["57", "63", "82"],
+                "Ruby": ["28", "71", "95"]
+            }
+        }
+    }
+}

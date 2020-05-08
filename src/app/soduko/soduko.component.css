@@ -1,0 +1,54 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(9, 75px);
+    grid-template-rows: repeat(9, 75px);
+}
+
+.item {
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.sepV {
+    background-color: blue;
+}
+
+.sepH {
+    background-color: blue;
+}
+
+.tile-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 73px);
+    grid-gap: 10px;
+}
+
+.basic-tile {
+    height: 75px;
+    width: 75px;
+    border: 1px solid black;
+}
+
+img {
+    width: 73px;
+}
+
+.bu {
+    border-bottom: 5px solid blue
+}
+
+.br {
+    border-right: 5px solid blue
+}
+
+.wallet.active {
+    background-color: aqua;
+}
+
+.done {
+    filter: grayscale(1);
+}
+
+.item:not(.active):empty {
+    background-color: aqua;
+}

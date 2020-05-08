@@ -38,3 +38,121 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
     filter: alpha(opacity=20);
 }
+
+.basic-tile {
+    height: 75px;
+    width: 75px;
+    border: 1px solid black;
+}
+
+[type] {
+    background-size: 75px;
+}
+
+[type="1"].aquars {
+    background-image: url("/assets/aquars/chika.png");
+}
+
+[type="2"].aquars {
+    background-image: url("/assets/aquars/riko.png");
+}
+
+[type="3"].aquars {
+    background-image: url("/assets/aquars/kanan.png");
+}
+
+[type="4"].aquars {
+    background-image: url("/assets/aquars/dia.png");
+}
+
+[type="5"].aquars {
+    background-image: url("/assets/aquars/you.png");
+}
+
+[type="6"].aquars {
+    background-image: url("/assets/aquars/yoshiko.png");
+}
+
+[type="7"].aquars {
+    background-image: url("/assets/aquars/hanamaru.png");
+}
+
+[type="8"].aquars {
+    background-image: url("/assets/aquars/mari.png");
+}
+
+[type="9"].aquars {
+    background-image: url("/assets/aquars/ruby.png");
+}
+
+[type="1"].muse {
+    background-image: url("/assets/muse/honoka.png");
+}
+
+[type="2"].muse {
+    background-image: url("/assets/muse/kotori.png");
+}
+
+[type="3"].muse {
+    background-image: url("/assets/muse/umi.png");
+}
+
+[type="4"].muse {
+    background-image: url("/assets/muse/hanayo.png");
+}
+
+[type="5"].muse {
+    background-image: url("/assets/muse/rin.png");
+}
+
+[type="6"].muse {
+    background-image: url("/assets/muse/maki.png");
+}
+
+[type="7"].muse {
+    background-image: url("/assets/muse/nico.png");
+}
+
+[type="8"].muse {
+    background-image: url("/assets/muse/eli.png");
+}
+
+[type="9"].muse {
+    background-image: url("/assets/muse/nozomi.png");
+}
+
+[type="1"].nijigasaki {
+    background-image: url("/assets/niji/ayumu.png");
+}
+
+[type="2"].nijigasaki {
+    background-image: url("/assets/niji/kasumi.png");
+}
+
+[type="3"].nijigasaki {
+    background-image: url("/assets/niji/shizuku.png");
+}
+
+[type="4"].nijigasaki {
+    background-image: url("/assets/niji/karin.png");
+}
+
+[type="5"].nijigasaki {
+    background-image: url("/assets/niji/ai.png");
+}
+
+[type="6"].nijigasaki {
+    background-image: url("/assets/niji/kanata.png");
+}
+
+[type="7"].nijigasaki {
+    background-image: url("/assets/niji/setsuna.png");
+}
+
+[type="8"].nijigasaki {
+    background-image: url("/assets/niji/emma.png");
+}
+
+[type="9"].nijigasaki {
+    background-image: url("/assets/niji/rina.png");
+}
