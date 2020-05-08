@@ -44,9 +44,22 @@ export class AppComponent implements AfterViewInit{
   }
   checkdone(){
     for(let i =1; i<=9;i++){
+      this.rows[i]=[]
+      this.columns[i]=[]
+      this.squares[i]=[]
+    }
+    for(let i =1; i<=9;i++){
       if(this.countType(i)==9){
         this._elementRef.nativeElement.querySelector('[type="'+i+'"].wallet').classList.add("done")
       }
+      
+      this._elementRef.nativeElement.querySelectorAll('[type="'+i+'"]').forEach(element => {
+        if(!element.classList.contains("wallet")){
+          this.rows[element.parentElement.attributes.row.value].push(i);
+          this.columns[element.parentElement.attributes.column.value].push(i);
+          this.squares[element.parentElement.attributes.square.value].push(i);
+        }
+      });
     }
   }
 
@@ -66,6 +79,8 @@ export class AppComponent implements AfterViewInit{
       },
     }
     )
+
+
     this.subs.add(dragularService.drop("Tiles")
       .subscribe(({ name, el, target, source, sibling }) => {
         let elType = parseInt(el.getAttribute("type"))
@@ -85,20 +100,18 @@ export class AppComponent implements AfterViewInit{
         }
         if (this.rows[tRow].indexOf(elType)>=0 ||this.columns[tCol].indexOf(elType)>=0 ||this.squares[tSqr].indexOf(elType)>=0)
         {
-          document.querySelector('[row="'+tRow+'"][column="'+tCol+'"]').innerHTML=""
           alert("Can not be placed here")
-        }
-        else{
-          this.rows[tRow].push(elType)
-          this.columns[tCol].push(elType)
-          this.squares[tSqr].push(elType)
-        }
+          document.querySelector('[row="'+tRow+'"][column="'+tCol+'"]>.basic-tile[type="'+elType+'"]').remove()
+        }else{
+        if(document.querySelectorAll('[row="'+tRow+'"][column="'+tCol+'"]>.basic-tile').length >1){
+          document.querySelector('[row="'+tRow+'"][column="'+tCol+'"]>.basic-tile:not([type="'+elType+'"])').remove()
+        }}
         this.checkdone()
         
       })
     );
+    
     this.subs.add(dragularService.remove("Tiles").subscribe(({el, container, source})=>{
-
       let elType = parseInt(el.getAttribute("type"))
       let sRow =source.getAttribute("row")
       let sCol=source.getAttribute("column")
@@ -155,69 +168,6 @@ export class AppComponent implements AfterViewInit{
     this.subs.unsubscribe();
   }
    ngAfterViewInit(){
-      this._elementRef.nativeElement.querySelectorAll('[type="1"]').forEach(element => {
-       if(!element.classList.contains("wallet")){
-        this.rows[element.parentElement.attributes.row.value].push(1);
-        this.columns[element.parentElement.attributes.column.value].push(1);
-        this.squares[element.parentElement.attributes.square.value].push(1);
-       }
-     });
-     this._elementRef.nativeElement.querySelectorAll('[type="2"]').forEach(element => {
-      if(!element.classList.contains("wallet")){
-       this.rows[element.parentElement.attributes.row.value].push(2);
-       this.columns[element.parentElement.attributes.column.value].push(2);
-       this.squares[element.parentElement.attributes.square.value].push(2);
-      }
-    });
-    this._elementRef.nativeElement.querySelectorAll('[type="3"]').forEach(element => {
-      if(!element.classList.contains("wallet")){
-       this.rows[element.parentElement.attributes.row.value].push(3);
-       this.columns[element.parentElement.attributes.column.value].push(3);
-       this.squares[element.parentElement.attributes.square.value].push(3);
-      }
-    });
-    this._elementRef.nativeElement.querySelectorAll('[type="4"]').forEach(element => {
-      if(!element.classList.contains("wallet")){
-       this.rows[element.parentElement.attributes.row.value].push(4);
-       this.columns[element.parentElement.attributes.column.value].push(4);
-       this.squares[element.parentElement.attributes.square.value].push(4);
-      }
-    });
-    this._elementRef.nativeElement.querySelectorAll('[type="5"]').forEach(element => {
-      if(!element.classList.contains("wallet")){
-       this.rows[element.parentElement.attributes.row.value].push(5);
-       this.columns[element.parentElement.attributes.column.value].push(5);
-       this.squares[element.parentElement.attributes.square.value].push(5);
-      }
-    });
-    this._elementRef.nativeElement.querySelectorAll('[type="6"]').forEach(element => {
-      if(!element.classList.contains("wallet")){
-       this.rows[element.parentElement.attributes.row.value].push(6);
-       this.columns[element.parentElement.attributes.column.value].push(6);
-       this.squares[element.parentElement.attributes.square.value].push(6);
-      }
-    });
-    this._elementRef.nativeElement.querySelectorAll('[type="7"]').forEach(element => {
-      if(!element.classList.contains("wallet")){
-       this.rows[element.parentElement.attributes.row.value].push(7);
-       this.columns[element.parentElement.attributes.column.value].push(7);
-       this.squares[element.parentElement.attributes.square.value].push(7);
-      }
-    });
-    this._elementRef.nativeElement.querySelectorAll('[type="8"]').forEach(element => {
-      if(!element.classList.contains("wallet")){
-       this.rows[element.parentElement.attributes.row.value].push(8);
-       this.columns[element.parentElement.attributes.column.value].push(8);
-       this.squares[element.parentElement.attributes.square.value].push(8);
-      }
-    });
-    this._elementRef.nativeElement.querySelectorAll('[type="9"]').forEach(element => {
-      if(!element.classList.contains("wallet")){
-       this.rows[element.parentElement.attributes.row.value].push(9);
-       this.columns[element.parentElement.attributes.column.value].push(9);
-       this.squares[element.parentElement.attributes.square.value].push(9);
-      }
-    });
     this.checkdone()     
    }
     
