@@ -49,40 +49,40 @@
     background-size: 75px;
 }
 
-[type="1"].aquars {
-    background-image: url("/assets/aquars/chika.png");
+[type="1"].aqours {
+    background-image: url("/assets/aqours/chika.png");
 }
 
-[type="2"].aquars {
-    background-image: url("/assets/aquars/riko.png");
+[type="2"].aqours {
+    background-image: url("/assets/aqours/riko.png");
 }
 
-[type="3"].aquars {
-    background-image: url("/assets/aquars/kanan.png");
+[type="3"].aqours {
+    background-image: url("/assets/aqours/kanan.png");
 }
 
-[type="4"].aquars {
-    background-image: url("/assets/aquars/dia.png");
+[type="4"].aqours {
+    background-image: url("/assets/aqours/dia.png");
 }
 
-[type="5"].aquars {
-    background-image: url("/assets/aquars/you.png");
+[type="5"].aqours {
+    background-image: url("/assets/aqours/you.png");
 }
 
-[type="6"].aquars {
-    background-image: url("/assets/aquars/yoshiko.png");
+[type="6"].aqours {
+    background-image: url("/assets/aqours/yoshiko.png");
 }
 
-[type="7"].aquars {
-    background-image: url("/assets/aquars/hanamaru.png");
+[type="7"].aqours {
+    background-image: url("/assets/aqours/hanamaru.png");
 }
 
-[type="8"].aquars {
-    background-image: url("/assets/aquars/mari.png");
+[type="8"].aqours {
+    background-image: url("/assets/aqours/mari.png");
 }
 
-[type="9"].aquars {
-    background-image: url("/assets/aquars/ruby.png");
+[type="9"].aqours {
+    background-image: url("/assets/aqours/ruby.png");
 }
 
 [type="1"].muse {
