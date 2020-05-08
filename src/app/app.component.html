@@ -95,9 +95,15 @@
         filter: grayscale(1);
     }
     
-    .active {
-        background: yellow;
+    .item:not(.active):empty {
+        background-color: aqua;
     }
+    /* .item:not(.active)>.basic-tile {
+        background-color: unset;
+    } */
+    /* .active {
+        background: yellow;
+    } */
     /*     
     [square="1"] {
         background-color: blue;
@@ -137,15 +143,15 @@
 </style>
 
 <div class="tile-grid" id="tile-grid" dragula="Tiles">
-    <div type="1" class="basic-tile type1 wallet"></div>
-    <div type="2" class="basic-tile type2 wallet"></div>
-    <div type="3" class="basic-tile type3 wallet"></div>
-    <div type="4" class="basic-tile type4 wallet"></div>
-    <div type="5" class="basic-tile type5 wallet"></div>
-    <div type="6" class="basic-tile type6 wallet"></div>
-    <div type="7" class="basic-tile type7 wallet"></div>
-    <div type="8" class="basic-tile type8 wallet"></div>
-    <div type="9" class="basic-tile type9 wallet"></div>
+    <div type="1" class="basic-tile type1 wallet" (click)="clickHeaderTile($event)"></div>
+    <div type="2" class="basic-tile type2 wallet" (click)="clickHeaderTile($event)"></div>
+    <div type="3" class="basic-tile type3 wallet" (click)="clickHeaderTile($event)"></div>
+    <div type="4" class="basic-tile type4 wallet" (click)="clickHeaderTile($event)"></div>
+    <div type="5" class="basic-tile type5 wallet" (click)="clickHeaderTile($event)"></div>
+    <div type="6" class="basic-tile type6 wallet" (click)="clickHeaderTile($event)"></div>
+    <div type="7" class="basic-tile type7 wallet" (click)="clickHeaderTile($event)"></div>
+    <div type="8" class="basic-tile type8 wallet" (click)="clickHeaderTile($event)"></div>
+    <div type="9" class="basic-tile type9 wallet" (click)="clickHeaderTile($event)"></div>
 </div>
 <!-- [attr.row]="j+1" 
 [attr.column]="i+1" 

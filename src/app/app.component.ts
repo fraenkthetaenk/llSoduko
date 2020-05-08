@@ -45,7 +45,6 @@ export class AppComponent implements AfterViewInit{
   checkdone(){
     for(let i =1; i<=9;i++){
       if(this.countType(i)==9){
-        console.log("asd")
         this._elementRef.nativeElement.querySelector('[type="'+i+'"].wallet').classList.add("done")
       }
     }
@@ -112,27 +111,33 @@ export class AppComponent implements AfterViewInit{
 
 
   }
-
-  clickTile(el){
+  markTiles(type){
     this._elementRef.nativeElement.querySelectorAll(".active").forEach(element => {
       element.classList.remove("active")
     });
+    this._elementRef.nativeElement.querySelectorAll('[type="'+type+'"]:not(.wallet)').forEach(e=>{
+      this._elementRef.nativeElement.querySelectorAll('[row="'+e.parentElement.attributes.row.value+'"]').forEach(element => {
+        element.classList.add("active")
+      });
+      this._elementRef.nativeElement.querySelectorAll('[column="'+e.parentElement.attributes.column.value+'"]').forEach(element => {
+        element.classList.add("active")  
+      });
+      this._elementRef.nativeElement.querySelectorAll('[square="'+e.parentElement.attributes.square.value+'"]').forEach(element => {
+        element.classList.add("active")  
+      });
+     
+    })
+  }
+  
+  clickHeaderTile(el){
+    this.markTiles(el.target.getAttribute("type"))   
+  }
+  clickTile(el){
+
     let baseElement = el.target;
     if(baseElement.classList.contains("basic-tile")){
       // baseElement = baseElement.parentElement
-      let type = baseElement.attributes.type.value
-      this._elementRef.nativeElement.querySelectorAll('[type="'+type+'"]:not(.wallet)').forEach(e=>{
-        this._elementRef.nativeElement.querySelectorAll('[row="'+e.parentElement.attributes.row.value+'"]').forEach(element => {
-          element.classList.add("active")
-        });
-        this._elementRef.nativeElement.querySelectorAll('[column="'+e.parentElement.attributes.column.value+'"]').forEach(element => {
-          element.classList.add("active")  
-        });
-        this._elementRef.nativeElement.querySelectorAll('[square="'+e.parentElement.attributes.square.value+'"]').forEach(element => {
-          element.classList.add("active")  
-        });
-       
-      })
+      this.markTiles(baseElement.attributes.type.value)
     }
     else{
       this._elementRef.nativeElement.querySelectorAll('[row="'+baseElement.attributes.row.value+'"]').forEach(element => {
