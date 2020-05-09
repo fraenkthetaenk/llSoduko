@@ -23,14 +23,15 @@ export class SodukoComponent implements OnInit,AfterViewInit {
   showHints= false;
  
   range =[1,2,3,4,5,6,7,8,9];
-  groups2 = ["adasdas","asasdasddsaas"]
   groups = []
   sodukos = []
   selectedGroup ="muse"
   selectedGame ="1"
 
   subs = new Subscription();
-
+  onGroupSelectChange(){
+    console.log(this.sodukos)
+  }
   loadGame(){
     this.showHints =false;
     this._elementRef.nativeElement.querySelectorAll(".basic-tile.wallet").forEach(element=>{

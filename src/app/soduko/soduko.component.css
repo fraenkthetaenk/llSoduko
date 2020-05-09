@@ -49,6 +49,10 @@ img {
     filter: grayscale(1);
 }
 
+.center {
+    justify-content: center;
+}
+
 
 /* .item:not(.active):empty {
     background-color: aqua;

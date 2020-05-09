@@ -1,35 +1,43 @@
-<select [(ngModel)]="selectedGroup">
-    <ng-template ngFor let-item [ngForOf]="groups" let-i="index">
-    <!-- <option *ngFor ="let group in groups2" [value]="group">{{group}}</option> -->
-    <option [ngValue]="groups[i]">{{groups[i]}}</option>
-    </ng-template>
-</select>
-
-<select [(ngModel)]="selectedGame">
-    <ng-template ngFor let-item [ngForOf]="sodukos" let-i="index">
-    <!-- <option *ngFor ="let group in groups2" [value]="group">{{group}}</option> -->
-    <option [ngValue]="sodukos[i]">{{sodukos[i]}}</option>
-    </ng-template>
-</select>
-
-<button (click)="loadGame()">Load</button>
-<div>
-    Show Hints:<input type="checkbox" [(ngModel)]="showHints">
-</div>
-
-<div class="tile-grid" id="tile-grid" dragula="Tiles">
-    <ng-template ngFor let-item [ngForOf]="range" let-i="index">
-        <div [attr.type]="i+1" class="basic-tile wallet" (click)="clickHeaderTile($event)"></div>
-    </ng-template>
-</div>
-<div class="parent" id="soduko-grid" style="padding-top: 20px;">
-    <ng-template ngFor let-item [ngForOf]="range" let-j="index">
-        <ng-template ngFor let-item [ngForOf]="range" let-i="index">
-            <div class="item" (click)="clickTile($event)" [ngClass]="{'bu':(j==2 || j==5),'br':(i==2 || i==5)}" [dragula]="allTile.indexOf((''+(j+1)+(i+1)))>=0 ? undefined:'Tiles'" [attr.row]="j+1" [attr.column]="i+1" [attr.square]="Math.floor((i)/3)+Math.floor((j)/3)*3+1">
-            </div>
-        </ng-template>
-    </ng-template>
-</div>
-<script>
-    dragula([document.querySelector('#tile-grid'), document.querySelector('#soduko-grid')]);
-</script>
+<mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Select a group</mat-label>
+            <mat-select [(value)]="selectedGroup" (selectionChange)="onGroupSelectChange()">
+                <ng-template ngFor let-item [ngForOf]="groups" let-i="index">
+                    <!-- <option *ngFor ="let group in groups2" [value]="group">{{group}}</option> -->
+                    <mat-option [value]="groups[i]">{{groups[i]}}
+                    </mat-option>
+                </ng-template>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select a game</mat-label>
+            <mat-select [(value)]="selectedGame">
+                <ng-template ngFor let-item [ngForOf]="sodukos" let-i="index">
+                    <!-- <option *ngFor ="let group in groups2" [value]="group">{{group}}</option> -->
+                    <mat-option [value]="sodukos[i]">{{sodukos[i]}}</mat-option>
+                </ng-template>
+            </mat-select>
+        </mat-form-field>
+        <button mat-stroked-button (click)="loadGame()">Load</button>
+        <mat-slide-toggle [(ngModel)]="showHints">Show Hints:</mat-slide-toggle>
+        <mat-divider></mat-divider>
+        <div class="tile-grid center" id="tile-grid" dragula="Tiles">
+            <ng-template ngFor let-item [ngForOf]="range" let-i="index">
+                <div [attr.type]="i+1" class="basic-tile wallet" (click)="clickHeaderTile($event)"></div>
+            </ng-template>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="parent center" id="soduko-grid" style="padding-top: 20px;">
+            <ng-template ngFor let-item [ngForOf]="range" let-j="index">
+                <ng-template ngFor let-item [ngForOf]="range" let-i="index">
+                    <div class="item" (click)="clickTile($event)" [ngClass]="{'bu':(j==2 || j==5),'br':(i==2 || i==5)}" [dragula]="allTile.indexOf((''+(j+1)+(i+1)))>=0 ? undefined:'Tiles'" [attr.row]="j+1" [attr.column]="i+1" [attr.square]="Math.floor((i)/3)+Math.floor((j)/3)*3+1">
+                    </div>
+                </ng-template>
+            </ng-template>
+        </div>
+        <script>
+            dragula([document.querySelector('#tile-grid'), document.querySelector('#soduko-grid')]);
+        </script>
+    </mat-card-content>
+</mat-card>

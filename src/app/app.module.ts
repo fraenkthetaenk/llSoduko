@@ -10,7 +10,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatSelectModule} from "@angular/material/select"
+import {MatSlideToggleModule} from "@angular/material/slide-toggle"
+import {MatButtonModule} from "@angular/material/button"
+import {MatToolbarModule} from "@angular/material/toolbar"
+import {MatDividerModule} from "@angular/material/divider"
+import {MatCardModule} from "@angular/material/card"
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +27,15 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DragulaModule.forRoot(),FormsModule
+    DragulaModule.forRoot(),
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatDividerModule,         
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
