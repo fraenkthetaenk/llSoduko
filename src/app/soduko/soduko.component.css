@@ -51,6 +51,7 @@ img {
 
 .center {
     justify-content: center;
+    overflow-y: scroll;
 }
 
 
