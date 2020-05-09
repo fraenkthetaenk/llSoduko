@@ -30,7 +30,7 @@ export class SodukoComponent implements OnInit,AfterViewInit {
 
   subs = new Subscription();
   onGroupSelectChange(){
-    console.log(this.sodukos)
+   this.sodukos =  Object.keys(this.baseSoduko[this.selectedGroup]["sodukos"]);
   }
   loadGame(){
     this.showHints =false;
@@ -74,6 +74,111 @@ export class SodukoComponent implements OnInit,AfterViewInit {
     }
   }
 
+  solve(onlyShowNextSaveNumber=false, onlyShowNextSavePlace=false){
+    let saveShowHints= this.showHints;
+    this.showHints = true;
+    let placedTile = true;
+    let tileLocation = "";
+    let tileType = "";
+    let keepGoing = true;
+    let notSovledTypes=document.querySelectorAll(".wallet:not(.done");
+    while( placedTile && notSovledTypes.length>0 && keepGoing){
+      placedTile = false
+      notSovledTypes.forEach(element=>{
+        if(!placedTile){
+          this.markTiles(element.getAttribute("type"));
+          for(let i = 1;i<=9;i++){
+            if(document.querySelectorAll("[column='"+i+"']."+this.classLastAdded).length == 1){
+              placedTile=true;
+              let e=document.querySelector("[column='"+i+"']."+this.classLastAdded)
+              let eR =e.getAttribute("row") 
+              let eC= e.getAttribute("column")
+              if(onlyShowNextSaveNumber ||onlyShowNextSavePlace){
+                document.querySelectorAll("."+this.classLastAdded+":not(.wallet)").forEach(element=>{
+                  element.classList.remove(this.classLastAdded)
+                })
+                if(onlyShowNextSaveNumber){
+                  document.querySelector(".wallet[type='"+element.getAttribute("type")+"']").classList.add("active")
+                }
+                else{
+                
+                  document.querySelector('[row="'+eR+'"][column="'+eC+'"]').classList.add(this.classLastAdded)
+                }
+                keepGoing=false;
+              }
+              else{
+                this._elementRef.nativeElement.querySelector('[row="'+eR+'"][column="'+eC+'"]').innerHTML= '<div type="'+element.getAttribute("type")+'" class="basic-tile '+this.selectedGroup+'"></div>'
+              }
+            }
+          }
+          if (!placedTile){
+            for(let i = 1;i<=9;i++){
+              if(document.querySelectorAll("[row='"+i+"']."+this.classLastAdded).length == 1){
+                placedTile=true;
+                let e=document.querySelector("[row='"+i+"']."+this.classLastAdded)
+                let eR =e.getAttribute("row") 
+                let eC= e.getAttribute("column")
+                if(onlyShowNextSaveNumber ||onlyShowNextSavePlace){
+                  document.querySelectorAll("."+this.classLastAdded+":not(.wallet)").forEach(element=>{
+                    element.classList.remove(this.classLastAdded)
+                  })
+                  if(onlyShowNextSaveNumber){
+                    document.querySelector(".wallet[type='"+element.getAttribute("type")+"']").classList.add("active")
+                  }
+                  else{
+                  
+                    document.querySelector('[row="'+eR+'"][column="'+eC+'"]').classList.add(this.classLastAdded)
+                  }
+                  keepGoing=false;
+                }
+                else{
+                this._elementRef.nativeElement.querySelector('[row="'+eR+'"][column="'+eC+'"]').innerHTML= '<div type="'+element.getAttribute("type")+'" class="basic-tile '+this.selectedGroup+'"></div>'
+              }
+            }
+            }
+          }
+          
+          if(!placedTile){
+            for(let i = 1;i<=9;i++){
+              if(document.querySelectorAll("[square='"+i+"']."+this.classLastAdded).length == 1){
+                placedTile=true;
+                let e=document.querySelector("[square='"+i+"']."+this.classLastAdded)
+                let eR =e.getAttribute("row") 
+                let eC= e.getAttribute("column")
+                if(onlyShowNextSaveNumber ||onlyShowNextSavePlace){
+                  document.querySelectorAll("."+this.classLastAdded+":not(.wallet)").forEach(element=>{
+                    element.classList.remove(this.classLastAdded)
+                  })
+                  if(onlyShowNextSaveNumber){
+                    document.querySelector(".wallet[type='"+element.getAttribute("type")+"']").classList.add("active")
+                  }
+                  else{
+                  
+                    document.querySelector('[row="'+eR+'"][column="'+eC+'"]').classList.add(this.classLastAdded)
+                  }
+                  keepGoing=false;
+                }
+                else{
+                this._elementRef.nativeElement.querySelector('[row="'+eR+'"][column="'+eC+'"]').innerHTML= '<div type="'+element.getAttribute("type")+'" class="basic-tile '+this.selectedGroup+'"></div>'
+              }}
+            }
+          }
+      }
+      })
+      
+      if(keepGoing){
+      this.checkdone();
+      }
+      notSovledTypes=document.querySelectorAll(".wallet:not(.done");
+    }
+    this.showHints =saveShowHints;
+  }
+  onlyShowNextSaveNumber(){
+    this.solve(true,false)
+  }
+  onlyShowNextSavePlace(){
+    this.solve(false,true)
+  }
   tiles: Array<Number>[] = []
   
   allTile = [];
@@ -175,11 +280,38 @@ export class SodukoComponent implements OnInit,AfterViewInit {
       });
      
     })
-   
-    console.log(this.classLastAdded)
     this._elementRef.nativeElement.querySelectorAll(".item:not(.active):empty").forEach(element => {
       element.classList.add(this.classLastAdded )
     });
+    
+    for(let i = 1;i<=9;i++){
+      let cColums = [];
+      let cRows = [];
+      this._elementRef.nativeElement.querySelectorAll("[square='"+i+"']."+this.classLastAdded).forEach(element =>{
+        cColums.push(element.getAttribute("column"));
+        cRows.push(element.getAttribute("row"))
+      })
+
+      cRows = ([ ... new Set(cRows)])
+      cColums = ([ ... new Set(cColums)])
+      
+      if(cRows.length ==1){
+        this._elementRef.nativeElement.querySelectorAll("."+this.classLastAdded+"[row='"+cRows[0]+"']:not([square='"+i+"'])").forEach(element => {
+          element.classList.remove(this.classLastAdded)
+        });
+      }
+      else{
+        if(cColums.length ==1 )
+        {
+          this._elementRef.nativeElement.querySelectorAll("."+this.classLastAdded+"[column='"+cColums[0]+"']:not([square='"+i+"'])").forEach(element => {
+            element.classList.remove(this.classLastAdded)
+          });
+        }
+
+      }
+
+
+    }
   }
     
   }

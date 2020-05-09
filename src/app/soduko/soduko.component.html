@@ -20,6 +20,9 @@
             </mat-select>
         </mat-form-field>
         <button mat-stroked-button (click)="loadGame()">Load</button>
+        <button mat-stroked-button (click)="onlyShowNextSaveNumber()">Show Placeable Numer</button>
+        <button mat-stroked-button (click)="onlyShowNextSavePlace()">Show Placeable Number and Place</button>
+        <button mat-stroked-button (click)="solve()">Solve Completly</button>
         <mat-slide-toggle [(ngModel)]="showHints">Show Hints:</mat-slide-toggle>
         <mat-divider></mat-divider>
         <div class="parent center" id="soduko-grid" style="padding-top: 20px;">
