@@ -113,5 +113,31 @@
                 "Ruby": ["28", "71", "95"]
             }
         }
+    },
+    "normal": {
+        "characters": {
+            "1": { "color": "#F0A20B", "name": "n1", "image": "/assets/normal/1.png" },
+            "2": { "color": "#E9A9E8", "name": "n2", "image": "/assets/normal/2.png" },
+            "3": { "color": "#13E8AE", "name": "n3", "image": "/assets/normal/3.png" },
+            "4": { "color": "#F23B4C", "name": "n4", "image": "/assets/normal/4.png" },
+            "5": { "color": "#49B9F9", "name": "n5", "image": "/assets/normal/5.png" },
+            "6": { "color": "#898989", "name": "n6", "image": "/assets/normal/6.png" },
+            "7": { "color": "#E6D617", "name": "n7", "image": "/assets/normal/7.png" },
+            "8": { "color": "#AE58EB", "name": "n8", "image": "/assets/normal/8.png" },
+            "9": { "color": "#FB75E4", "name": "n9", "image": "/assets/normal/9.png" }
+        },
+        "sodukos": {
+            "1": {
+                "n1": [""],
+                "n2": [""],
+                "n3": [""],
+                "n4": [""],
+                "n5": [""],
+                "n6": [""],
+                "n7": [""],
+                "n9": [""]
+            }
+
+        }
     }
 }

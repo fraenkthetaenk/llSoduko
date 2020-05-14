@@ -157,6 +157,42 @@
     background-image: url("/assets/niji/rina.png");
 }
 
+[type="1"].normal {
+    background-image: url("/assets/normal/1.png");
+}
+
+[type="2"].normal {
+    background-image: url("/assets/normal/2.png");
+}
+
+[type="3"].normal {
+    background-image: url("/assets/normal/3.png");
+}
+
+[type="4"].normal {
+    background-image: url("/assets/normal/4.png");
+}
+
+[type="5"].normal {
+    background-image: url("/assets/normal/5.png");
+}
+
+[type="6"].normal {
+    background-image: url("/assets/normal/6.png");
+}
+
+[type="7"].normal {
+    background-image: url("/assets/normal/7.png");
+}
+
+[type="8"].normal {
+    background-image: url("/assets/normal/8.png");
+}
+
+[type="9"].normal {
+    background-image: url("/assets/normal/9.png");
+}
+
 .Ayumu {
     background-color: #EE879D
 }
@@ -264,5 +300,49 @@
 .Ruby {
     background-color: #FB75E4
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.n1 {
+    background-color: yellow
+}
+
+.n2 {
+    background-color: yellow
+}
+
+.n3 {
+    background-color: yellow
+}
+
+.n4 {
+    background-color: yellow
+}
+
+.n5 {
+    background-color: yellow
+}
+
+.n6 {
+    background-color: yellow
+}
+
+.n7 {
+    background-color: yellow
+}
+
+.n8 {
+    background-color: yellow
+}
+
+.n9 {
+    background-color: yellow
+}
+
+.html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
